@@ -23,12 +23,14 @@ graph TD
     T -->|No| V[Proceed Without Context Message]
     U --> W[System Learns from User Input]
     V --> W
-    W --> X[Generate Report]
-    X --> Y{Download or Email Report}
-    Y -->|Download| Z[User Downloads Report]
-    Y -->|Email| AA[Report Sent to Email]
-    Z --> AB[User Rates the Extraction]
-    AA --> AB
-    AB --> AC[Feedback Used for AI Improvement]
-    AC --> AD[Logs Saved for Review]
-    AD --> AE[End of Process]
+    W --> X[Feedback Reflected in User Interface]
+    X --> Y[Generate Report]
+    Y --> Z{Download or Email Report}
+    Z -->|Download| AA[User Downloads Report]
+    Z -->|Email| AB[Report Sent to Email]
+    AA --> AC[User Rates the Extraction via UI]
+    AB --> AC
+    AC --> AD[Feedback Used for AI Improvement]
+    AD --> AE[Logs Saved for Review]
+    AE --> AF[Feedback Loop to User Interface]
+    AF --> AG[End of Process]
