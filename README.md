@@ -1,517 +1,327 @@
-<h1>Project Overview</h1>
+# Project Overview
 
-<h2>Problem Statement</h2>
+## Problem Statement
 
-<p>In today's fast-paced business environment, professionals often face the daunting task of reviewing lengthy and complex contracts to extract critical information such as clauses, financial terms, and obligations. This manual process is time-consuming, prone to human error, and can delay important decisions and negotiations. The lack of an efficient method to quickly distill essential details from contracts hampers productivity and increases the risk of overlooking vital information that could have significant legal and financial implications.</p>
+In today's fast-paced business environment, professionals often face the daunting task of reviewing lengthy and complex contracts to extract critical information such as clauses, financial terms, obligations, compliance issues, and potential risks. This manual process is time-consuming, prone to human error, and can delay important decisions and negotiations. Additionally, the absence of intelligent tools for risk assessment, compliance checks, adaptive learning, and user guidance exacerbates the challenge. There is a pressing need for an efficient method to quickly distill essential details from contracts, identify potential risks, and provide insightful guidance—all while reducing the risk of overlooking vital information that could have significant legal and financial implications.
 
-<h2>High-Level Vision Statement</h2>
+## High-Level Vision Statement
 
-<p>Our vision is to revolutionize the contract review process by creating an intuitive and user-centric platform that automates the extraction of key information from contracts. By simplifying and streamlining this process into guided steps, users can quickly obtain summaries, verify and edit extracted data, and add contextual insights with ease. The platform aims to enhance efficiency, accuracy, and collaboration in contract analysis, ultimately empowering professionals to make informed decisions faster. Committed to privacy and data security, we focus on handling documents responsibly while building a knowledge base of contract structures and definitions to continuously improve the user experience.</p>
+Our vision is to revolutionize the contract review process by creating an intelligent, intuitive, and user-centric platform that automates the extraction of key information from contracts. By incorporating advanced functionalities such as risk assessment indicators, compliance checks, adaptive learning, a terminology glossary, and in-app guidance, we aim to provide users with not just data but actionable insights. The platform simplifies and streamlines the contract analysis process into guided steps, enhanced with customizable extraction profiles and options for data export. Users can quickly obtain summaries, verify and edit extracted data, and add contextual insights with ease. Committed to privacy and data security, we focus on handling documents responsibly while building a knowledge base of contract structures and definitions to continuously improve the user experience and empower professionals to make informed decisions faster.
 
-<hr>
+# Process Flow and Architecture
 
-<h1>Process Flow and Architecture</h1>
+## Process Flow
 
-<h2>Process Flow</h2>
+### Overview
 
-<h3>Overview</h3>
+The contract extraction process is divided into several key steps to guide the user smoothly from uploading a contract to receiving a detailed report. The process is enhanced with additional functionalities for a more insightful and customized experience.
 
-<p>The contract extraction process is divided into several key steps to guide the user smoothly from uploading a contract to receiving a detailed report.</p>
+### Step 1: Upload Contract Document and Profile Selection
 
-<h3>Step 1: Upload Contract Document</h3>
+1. **User Accesses the Platform**: The user navigates to the homepage of the contract extraction site.
 
-<ol>
-  <li><strong>User Accesses the Platform</strong>: The user navigates to the homepage of the contract extraction site.</li>
-  <li><strong>Document Upload Interface</strong>: The user is presented with a simple, intuitive interface designed for optimal user experience.</li>
-  <li><strong>Uploading the Document</strong>:
-    <ul>
-      <li>The user uploads a contract document in PDF or DOCX format.</li>
-      <li>The interface supports drag-and-drop functionality and a traditional file browser.</li>
-    </ul>
-  </li>
-  <li><strong>Validation</strong>:
-    <ul>
-      <li>The system validates the uploaded file for correct format and acceptable size.</li>
-      <li>If invalid, prompts the user to upload a correct file.</li>
-    </ul>
-  </li>
-</ol>
+2. **Document Upload Interface**: Presented with an intuitive interface enhanced with **in-app guidance and tooltips** to assist with navigation and usage.
 
-<h3>Step 2: Initial Contract Extraction</h3>
+3. **Uploading the Document**:
+   - Users can upload a contract document in PDF or DOCX format.
+   - Supports drag-and-drop functionality and traditional file browsing.
 
-<ol start="5">
-  <li><strong>User Initiates Extraction</strong>:
-    <ul>
-      <li>The user clicks the "Extract" button to begin the process.</li>
-    </ul>
-  </li>
-  <li><strong>Processing Animation</strong>:
-    <ul>
-      <li>An engaging animation plays to indicate that the system is processing the document.</li>
-    </ul>
-  </li>
-  <li><strong>Initial Summary Generation</strong>:
-    <ul>
-      <li>The backend sends the document text to the OpenAI ChatGPT API.</li>
-      <li>An initial summary of up to 2,500 characters is generated.</li>
-    </ul>
-  </li>
-  <li><strong>Display Initial Summary</strong>:
-    <ul>
-      <li>The system displays the initial summary to the user for review.</li>
-    </ul>
-  </li>
-</ol>
+4. **Validation**:
+   - The system validates the uploaded file for correct format and size.
+   - Prompts the user if the file is invalid.
 
-<h3>Step 3: Detailed Extraction Interface</h3>
+5. **Customizable Extraction Profiles**:
+   - Users select or create a custom extraction profile tailored to their specific needs (e.g., focusing on payment terms, delivery schedules).
+   - Profiles can be saved for future use.
 
-<ol start="9">
-  <li><strong>Document Viewer Setup</strong>:
-    <ul>
-      <li>The uploaded document is displayed on the left side of the screen using a document viewer compatible with PDFs and DOCX files.</li>
-    </ul>
-  </li>
-  <li><strong>Extraction of Detailed Information</strong>:
-    <ul>
-      <li>The system extracts detailed elements such as clauses, commercial terms, financial data, and formulas using AI models.</li>
-    </ul>
-  </li>
-  <li><strong>Selection of Extracted Items</strong>:
-    <ul>
-      <li>Extracted items are presented in an organized list or table on the right side.</li>
-      <li>Each item has a checkbox or toggle allowing the user to select or deselect it for inclusion in the final report.</li>
-    </ul>
-  </li>
-</ol>
+### Step 2: Initial Contract Extraction
 
-<h3>Step 4: Editing and Confirmation</h3>
+6. **User Initiates Extraction**:
+   - Clicking the "Extract" button begins the process.
 
-<ol start="12">
-  <li><strong>User Edits Extracted Data</strong>:
-    <ul>
-      <li>The user can click on any extracted item to edit its content directly within the interface.</li>
-    </ul>
-  </li>
-  <li><strong>Validation of Edits</strong>:
-    <ul>
-      <li>Changes are saved, and the system may provide real-time validation or suggestions.</li>
-    </ul>
-  </li>
-  <li><strong>Confirmation</strong>:
-    <ul>
-      <li>The user confirms the validity of the edited or selected items.</li>
-    </ul>
-  </li>
-</ol>
+7. **Processing Animation**:
+   - An engaging animation indicates that the system is processing the document.
 
-<h3>Step 5: Final Validation and Context Attachment</h3>
+8. **Initial Summary Generation**:
+   - Backend sends the document text to the OpenAI ChatGPT API, guided by the selected extraction profile.
+   - Generates an initial summary (up to 2,500 characters).
 
-<ol start="15">
-  <li><strong>Review Summary</strong>:
-    <ul>
-      <li>The system presents a final summary of all selected and edited items for the user to review.</li>
-    </ul>
-  </li>
-  <li><strong>Context Message Attachment</strong>:
-    <ul>
-      <li>The user has the option to add additional context:</li>
-      <ul>
-        <li><strong>Text Input</strong>: A text area is provided for the user to type additional notes or instructions.</li>
-        <li><strong>Voice Input</strong>: Alternatively, the user can record a voice message, which is converted to text using voice-to-text technology.</li>
-      </ul>
-    </ul>
-  </li>
-  <li><strong>Final Confirmation</strong>:
-    <ul>
-      <li>The user reviews all inputs and confirms to proceed to the next step.</li>
-    </ul>
-  </li>
-</ol>
+9. **Display Initial Summary**:
+   - System displays the initial summary with key terms linked to the **terminology glossary**.
 
-<h3>Step 6: Report Generation and Feedback</h3>
+### Step 3: Detailed Extraction Interface with Risk and Compliance Indicators
 
-<ol start="18">
-  <li><strong>Report Generation</strong>:
-    <ul>
-      <li>The system compiles the selected and edited information into a comprehensive report.</li>
-    </ul>
-  </li>
-  <li><strong>Download and Email Options</strong>:
-    <ul>
-      <li>The user can choose to:</li>
-      <ul>
-        <li><strong>Download</strong>: Receive the report as a downloadable PDF or Word document.</li>
-        <li><strong>Email</strong>: Send the report to a specified email address.</li>
-      </ul>
-    </ul>
-  </li>
-  <li><strong>User Rating and Feedback</strong>:
-    <ul>
-      <li>The user is prompted to rate the extraction process and provide feedback.</li>
-    </ul>
-  </li>
-  <li><strong>Logging for Review</strong>:
-    <ul>
-      <li>The system logs the user's actions, selections, and feedback for administrative review (while adhering to privacy policies).</li>
-    </ul>
-  </li>
-</ol>
+10. **Document Viewer Setup**:
+    - Uploaded document displayed on the left side using a compatible viewer.
 
-<h3>Step 7: Post-Processing and Data Handling</h3>
+11. **Extraction of Detailed Information**:
+    - System extracts detailed elements: clauses, terms, financial data, formulas.
+    - **Risk Assessment Indicators** highlight potential risks.
+    - **Compliance Checks and Alerts** notify of any regulatory issues.
 
-<ol start="22">
-  <li><strong>Data Anonymization and Storage</strong>:
-    <ul>
-      <li>Documents are not stored permanently.</li>
-      <li>Metadata and categories from the extraction are anonymized and stored to build a knowledge base.</li>
-    </ul>
-  </li>
-  <li><strong>Database Enhancement</strong>:
-    <ul>
-      <li>The system uses the collected metadata to enhance the database of contract-related definitions and structures.</li>
-    </ul>
-  </li>
-  <li><strong>Privacy Compliance</strong>:
-    <ul>
-      <li>All data handling complies with the privacy policy, ensuring user data is protected.</li>
-    </ul>
-  </li>
-</ol>
+12. **Presentation of Extracted Items with Indicators**:
+    - Items presented in an organized list or table.
+    - Visual cues (e.g., color-coded warnings) indicate risks and compliance issues.
 
-<hr>
+13. **Terminology Glossary Integration**:
+    - Key terms linked to a glossary accessible via hover or click.
 
-<h2>System Architecture</h2>
+14. **In-App Guidance and Tooltips**:
+    - Contextual help provided throughout the interface.
 
-<h3>Overview</h3>
+### Step 4: Editing, Confirmation, and Data Export Options
 
-<p>The system architecture consists of several interconnected components that handle frontend presentation, backend processing, data storage, and external integrations.</p>
+15. **User Edits Extracted Data**:
+    - Inline editing of extracted items.
+    - Users can make corrections, add annotations, or notes.
 
-<h3>Frontend Components</h3>
+16. **Validation of Edits**:
+    - Changes saved with real-time validation or suggestions.
+    - Edits contribute to the **feedback loop for AI improvement**.
 
-<ol>
-  <li><strong>User Interface (UI)</strong>:
-    <ul>
-      <li><strong>Features</strong>:
-        <ul>
-          <li>Responsive design for accessibility on various devices.</li>
-          <li>Intuitive navigation and visual elements to enhance user experience.</li>
-          <li>Interfaces for uploading documents, displaying progress animations, and interacting with extracted data.</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><strong>Document Viewer</strong>:
-    <ul>
-      <li><strong>Features</strong>:
-        <ul>
-          <li>Display the uploaded document for reference.</li>
-          <li>Support zooming, scrolling, and page navigation.</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><strong>Interactive Extraction Interface</strong>:
-    <ul>
-      <li><strong>Features</strong>:
-        <ul>
-          <li>Display extracted items with options to select, edit, and confirm.</li>
-          <li>Inline editing capabilities with validation.</li>
-          <li>Real-time updates to reflect changes.</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><strong>Voice Input Interface</strong>:
-    <ul>
-      <li><strong>Features</strong>:
-        <ul>
-          <li>Record voice messages.</li>
-          <li>Display transcribed text for user confirmation.</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><strong>Visualization Module</strong> (for contract structure diagrams):
-    <ul>
-      <li><strong>Features</strong>:
-        <ul>
-          <li>Render visual diagrams representing contract structures.</li>
-          <li>Interactive elements like zoom and hover for detailed views.</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ol>
+17. **Data Export Options (Optional)**:
+    - Option to export data in formats like CSV, Excel, or JSON.
 
-<h3>Backend Components</h3>
+18. **Confirmation**:
+    - Users confirm the validity of edited or selected items.
 
-<ol>
-  <li><strong>Web Framework</strong>:
-    <ul>
-      <li><strong>Technology</strong>: Django (Python).</li>
-      <li><strong>Features</strong>:
-        <ul>
-          <li>URL routing, view handling, and template rendering.</li>
-          <li>Session and state management.</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><strong>API Integration Module</strong>:
-    <ul>
-      <li><strong>OpenAI ChatGPT API</strong>:
-        <ul>
-          <li>Handles communication with OpenAI for initial summary and detailed extraction.</li>
-          <li>Manages API keys, rate limiting, and error handling.</li>
-        </ul>
-      </li>
-      <li><strong>Voice-to-Text Service</strong> (if using a third-party service):
-        <ul>
-          <li>Processes voice recordings and returns transcribed text.</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><strong>Data Processing and Extraction Module</strong>:
-    <ul>
-      <li><strong>Features</strong>:
-        <ul>
-          <li>Processes uploaded documents.</li>
-          <li>Extracts relevant information using AI/NLP models.</li>
-          <li>Structures data for frontend presentation.</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><strong>Asynchronous Task Queue</strong>:
-    <ul>
-      <li><strong>Technology</strong>: Celery with a message broker like Redis or RabbitMQ.</li>
-      <li><strong>Features</strong>:
-        <ul>
-          <li>Handles long-running tasks such as API calls and report generation.</li>
-          <li>Improves performance and scalability.</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><strong>Database</strong>:
-    <ul>
-      <li><strong>Technology</strong>: PostgreSQL or MySQL.</li>
-      <li><strong>Features</strong>:
-        <ul>
-          <li>Stores metadata, user inputs, logs, and the knowledge base of contract structures.</li>
-          <li>Ensures data integrity and security.</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><strong>File Handling Module</strong>:
-    <ul>
-      <li><strong>Features</strong>:
-        <ul>
-          <li>Manages temporary storage of uploaded documents.</li>
-          <li>Ensures secure upload and deletion post-processing.</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><strong>Report Generation Module</strong>:
-    <ul>
-      <li><strong>Features</strong>:
-        <ul>
-          <li>Compiles selected and edited data into a formatted report.</li>
-          <li>Generates downloadable files in PDF or Word format.</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><strong>Email Service</strong>:
-    <ul>
-      <li><strong>Features</strong>:
-        <ul>
-          <li>Sends reports to user-specified email addresses.</li>
-          <li>Handles email templates and delivery status.</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><strong>Logging and Monitoring Module</strong>:
-    <ul>
-      <li><strong>Features</strong>:
-        <ul>
-          <li>Records user actions, errors, and system performance metrics.</li>
-          <li>Provides data for administrative review and system improvement.</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li><strong>Privacy and Compliance Module</strong>:
-    <ul>
-      <li><strong>Features</strong>:
-        <ul>
-          <li>Implements data anonymization techniques.</li>
-          <li>Ensures compliance with regulations like GDPR.</li>
-          <li>Manages user consents and data handling policies.</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-</ol>
+### Step 5: Final Validation, Context Attachment, and Learning
 
-<h3>External Services and Integrations</h3>
+19. **Review Summary**:
+    - Final summary presented for user review.
 
-<ol>
-  <li><strong>OpenAI ChatGPT API</strong>:
-    <ul>
-      <li>Used for generating initial summaries and detailed extractions.</li>
-      <li>Requires careful management of API keys and adherence to usage policies.</li>
-    </ul>
-  </li>
-  <li><strong>Voice-to-Text API</strong> (if applicable):
-    <ul>
-      <li>Converts user voice messages into text.</li>
-      <li>Options include services like Google Cloud Speech-to-Text or Mozilla DeepSpeech.</li>
-    </ul>
-  </li>
-  <li><strong>Mermaid.js</strong>:
-    <ul>
-      <li>Renders diagrams based on data from the backend.</li>
-      <li>Enhances understanding of contract structures.</li>
-    </ul>
-  </li>
-</ol>
+20. **Context Message Attachment**:
+    - Option to add additional context via text or voice message.
 
-<h3>Security and Compliance</h3>
+21. **Learning and Adaptation**:
+    - System learns from user edits and feedback to improve future extractions.
 
-<ol>
-  <li><strong>Data Security</strong>:
-    <ul>
-      <li>SSL/TLS encryption for data in transit.</li>
-      <li>Secure handling and storage of sensitive data.</li>
-      <li>Regular security audits and updates.</li>
-    </ul>
-  </li>
-  <li><strong>User Authentication and Authorization</strong> (Optional but recommended):
-    <ul>
-      <li>Manages user accounts and permissions.</li>
-      <li>Protects user data and system access.</li>
-    </ul>
-  </li>
-  <li><strong>Privacy Compliance</strong>:
-    <ul>
-      <li>Adheres to privacy laws and regulations.</li>
-      <li>Provides transparent privacy policies to users.</li>
-    </ul>
-  </li>
-</ol>
+22. **Final Confirmation**:
+    - User confirms to proceed to the next step.
 
-<h3>Deployment and Scalability</h3>
+### Step 6: Report Generation and Feedback
 
-<ol>
-  <li><strong>Hosting Environment</strong>:
-    <ul>
-      <li>Options include cloud services like AWS, Azure, or Heroku.</li>
-      <li>Scalable infrastructure to handle variable workloads.</li>
-    </ul>
-  </li>
-  <li><strong>Containerization and Orchestration</strong>:
-    <ul>
-      <li><strong>Technology</strong>: Docker and Kubernetes (optional but beneficial for scalability).</li>
-      <li>Simplifies deployment and scaling of application components.</li>
-    </ul>
-  </li>
-  <li><strong>Continuous Integration/Continuous Deployment (CI/CD)</strong>:
-    <ul>
-      <li>Automates testing, integration, and deployment processes.</li>
-      <li>Tools like Jenkins, GitHub Actions, or GitLab CI/CD.</li>
-    </ul>
-  </li>
-</ol>
+23. **Report Generation**:
+    - Compiles selected and edited information into a comprehensive report.
+    - Includes risk assessments, compliance alerts, and glossary references.
 
-<hr>
+24. **Download and Email Options**:
+    - Users can download the report or have it emailed.
 
-<h2>Summary of Data Flow</h2>
+25. **User Rating and Feedback**:
+    - Prompted to rate the extraction process and provide feedback.
 
-<ol>
-  <li><strong>User Interaction</strong>:
-    <ul>
-      <li>User uploads a document and initiates the extraction process via the frontend interface.</li>
-    </ul>
-  </li>
-  <li><strong>Backend Processing</strong>:
-    <ul>
-      <li>The document is securely received by the Django backend.</li>
-      <li>An asynchronous task is triggered to handle the extraction using OpenAI's API.</li>
-    </ul>
-  </li>
-  <li><strong>Data Exchange with External APIs</strong>:
-    <ul>
-      <li>Document text is sent to OpenAI's API.</li>
-      <li>Responses are received and processed.</li>
-    </ul>
-  </li>
-  <li><strong>Data Presentation</strong>:
-    <ul>
-      <li>Extracted data is sent back to the frontend for user interaction.</li>
-      <li>The frontend displays data and captures user inputs/edits.</li>
-    </ul>
-  </li>
-  <li><strong>Final Output Generation</strong>:
-    <ul>
-      <li>User-confirmed data is compiled into a report by the backend.</li>
-      <li>The report is delivered to the user via download or email.</li>
-    </ul>
-  </li>
-  <li><strong>Logging and Data Storage</strong>:
-    <ul>
-      <li>Metadata and user actions are logged for analysis.</li>
-      <li>Documents are deleted post-processing to ensure privacy.</li>
-    </ul>
-  </li>
-</ol>
+26. **In-App Guidance for Next Steps**:
+    - Suggestions provided based on the analysis (e.g., areas for renegotiation).
 
-<hr>
+### Step 7: Post-Processing and Data Handling
 
-<h2>Potential Technologies Stack</h2>
+27. **Data Anonymization and Storage**:
+    - Documents are not stored permanently.
+    - Anonymized metadata stored for knowledge base enhancement.
 
-<ul>
-  <li><strong>Frontend</strong>:
-    <ul>
-      <li>HTML5, CSS3, JavaScript</li>
-      <li>Frameworks: React or Vue.js (optional for enhanced interactivity)</li>
-      <li>Libraries: PDF.js, Mermaid.js, rich text editors, voice recording APIs</li>
-    </ul>
-  </li>
-  <li><strong>Backend</strong>:
-    <ul>
-      <li>Django (Python Web Framework)</li>
-      <li>Django REST Framework (if building APIs)</li>
-      <li>Celery (for asynchronous tasks)</li>
-      <li>Database: PostgreSQL or MySQL</li>
-      <li>External APIs: OpenAI ChatGPT API, Voice-to-Text API</li>
-    </ul>
-  </li>
-  <li><strong>DevOps and Deployment</strong>:
-    <ul>
-      <li>Docker (Containerization)</li>
-      <li>Kubernetes (Orchestration)</li>
-      <li>CI/CD Tools: Jenkins, GitHub Actions</li>
-      <li>Hosting: AWS, Azure, Heroku, or DigitalOcean</li>
-    </ul>
-  </li>
-</ul>
+28. **Database Enhancement**:
+    - Collected metadata enhances the database of contract definitions and structures.
+    - **Terminology glossary** updated with new terms.
 
-<hr>
+29. **Privacy Compliance**:
+    - Data handling complies with privacy policies and regulations.
+   
+## System Architecture
 
-<h2>Additional Notes</h2>
+### Overview
 
-<ul>
-  <li><strong>Animations</strong>: Use CSS and JavaScript animations to enhance user experience during data processing times.</li>
-  <li><strong>Voice Input</strong>: Ensure cross-browser compatibility and consider fallbacks for unsupported browsers.</li>
-  <li><strong>Data Security</strong>: Sanitize and validate user inputs to prevent security vulnerabilities like XSS or SQL injection.</li>
-  <li><strong>Scalability</strong>: Use asynchronous tasks (e.g., Celery with Redis) for handling long-running processes like AI model interactions.</li>
-  <li><strong>API Management</strong>: Monitor API usage to stay within OpenAI's rate limits and handle exceptions gracefully.</li>
-  <li><strong>Accessibility</strong>: Ensure the UI is accessible to users with disabilities (WCAG compliance).</li>
-  <li><strong>Testing</strong>: Write unit and integration tests for both backend and frontend components.</li>
-  <li><strong>Documentation</strong>: Maintain thorough documentation for both developers and end-users.</li>
-</ul>
+The system architecture consists of interconnected components that handle frontend presentation, backend processing, data storage, and external integrations. The architecture is designed to incorporate the new functionalities seamlessly.
+
+### Frontend Components
+
+1. **User Interface (UI)**:
+   - Responsive and intuitive design.
+   - Enhanced with **in-app guidance and tooltips** for better user experience.
+
+2. **Document Viewer**:
+   - Displays uploaded documents with navigation features.
+   - Supports both PDF and DOCX formats.
+
+3. **Interactive Extraction Interface**:
+   - Displays extracted items with options to select, edit, and confirm.
+   - Shows **risk assessment indicators** and **compliance alerts** using visual cues.
+
+4. **Terminology Glossary Interface**:
+   - Provides definitions for key terms via hover or click.
+   - Enhances understanding of complex legal and procurement terms.
+
+5. **Voice Input Interface**:
+   - Allows users to record voice messages.
+   - Converts voice input to text for inclusion in the context message.
+
+6. **Visualization Module**:
+   - Renders contract structure diagrams using **Mermaid.js**.
+   - Helps users visualize the flow and hierarchy within the contract.
+
+### Backend Components
+
+1. **Web Framework**:
+   - **Django** handles URL routing, views, and template rendering.
+   - Manages session and state management securely.
+
+2. **API Integration Module**:
+   - Integrates with **OpenAI ChatGPT API** for summaries and extractions.
+   - Uses **Voice-to-Text Service** for processing voice messages.
+
+3. **Data Processing and Extraction Module**:
+   - Processes uploaded documents.
+   - Extracts relevant information using AI/NLP models.
+   - Incorporates **risk and compliance analysis**.
+
+4. **Terminology Glossary Module**:
+   - Manages a database of procurement and legal terms.
+   - Updates glossary based on new terms from processed contracts.
+
+5. **Profile Management Module**:
+   - Manages customizable extraction profiles.
+   - Allows users to create, save, and select profiles.
+
+6. **Asynchronous Task Queue**:
+   - Uses **Celery** with a message broker like Redis or RabbitMQ.
+   - Handles long-running tasks such as API calls and report generation.
+
+7. **Database**:
+   - **PostgreSQL** or **MySQL** stores metadata, logs, glossary terms, and profiles.
+   - Ensures data integrity and security.
+
+8. **File Handling Module**:
+   - Manages secure temporary storage of uploaded documents.
+   - Ensures documents are deleted after processing.
+
+9. **Report Generation Module**:
+   - Compiles selected and edited data into a formatted report.
+   - Includes risk assessments, compliance alerts, and glossary references.
+
+10. **Data Export Module**:
+    - Enables data export in various formats (CSV, Excel, JSON).
+    - Provides flexibility for further analysis or reporting.
+
+11. **Email Service**:
+    - Sends reports to user-specified email addresses.
+    - Handles email templates and delivery status.
+
+12. **Logging and Monitoring Module**:
+    - Records user actions, errors, and system performance metrics.
+    - Provides data for administrative review and system improvement.
+
+13. **Feedback and AI Training Module**:
+    - Collects user feedback and edits.
+    - Uses data to improve AI models through machine learning.
+
+14. **Privacy and Compliance Module**:
+    - Ensures compliance with data protection regulations like GDPR.
+    - Manages user consents and data handling policies.
+
+### External Services and Integrations
+
+1. **OpenAI ChatGPT API**:
+   - Used for generating initial summaries and detailed extractions.
+   - Requires careful management of API keys and adherence to usage policies.
+
+2. **Voice-to-Text API**:
+   - Converts user voice messages into text.
+   - Options include services like Google Cloud Speech-to-Text.
+
+3. **Mermaid.js**:
+   - Renders diagrams based on data from the backend.
+   - Enhances understanding of contract structures.
+
+### Security and Compliance
+
+1. **Data Security**:
+   - SSL/TLS encryption for data in transit.
+   - Secure handling and storage of sensitive data.
+   - Regular security audits and updates.
+
+2. **User Authentication and Authorization**:
+   - Manages user accounts and permissions.
+   - Supports multi-factor authentication (MFA).
+
+3. **Privacy Compliance**:
+   - Adheres to privacy laws and regulations.
+   - Provides transparent privacy policies to users.
+
+### Deployment and Scalability
+
+1. **Hosting Environment**:
+   - Options include cloud services like AWS, Azure, or Heroku.
+   - Scalable infrastructure to handle variable workloads.
+
+2. **Containerization and Orchestration**:
+   - Uses **Docker** and **Kubernetes** for deployment.
+   - Simplifies scaling and management of application components.
+
+3. **Continuous Integration/Continuous Deployment (CI/CD)**:
+   - Automates testing, integration, and deployment processes.
+   - Utilizes tools like Jenkins, GitHub Actions, or GitLab CI/CD.
+
+# Technology Stack and Data Flow
+
+## Potential Technology Stack
+
+- **Frontend**:
+  - **HTML5**, **CSS3**, **JavaScript**
+  - Frameworks: **React** or **Vue.js** for a dynamic and responsive UI
+  - Libraries:
+    - **PDF.js** for document viewing
+    - **Mermaid.js** for rendering diagrams
+    - **Quill.js** or **Draft.js** for rich text editing
+    - **Web Speech API** for voice input functionality
+    - **Intro.js** for in-app guidance and tooltips
+
+- **Backend**:
+  - **Django** and **Django REST Framework** for building robust APIs
+  - **Celery** for asynchronous task management
+  - Database: **PostgreSQL** or **MySQL** for reliable data storage
+  - **Machine Learning Frameworks**: **TensorFlow** or **PyTorch** for AI model training and adaptation
+  - External APIs:
+    - **OpenAI ChatGPT API** for natural language processing tasks
+    - **Voice-to-Text API** for converting voice messages to text
+
+- **DevOps and Deployment**:
+  - **Docker** for containerization
+  - **Kubernetes** for orchestration and scalability
+  - **CI/CD Tools**: Jenkins, **GitHub Actions**, or **GitLab CI/CD** for automated deployment
+  - Hosting Platforms: **AWS**, **Azure**, **Heroku**, or **DigitalOcean**
+
+## Data Flow Summary
+
+1. **User Interaction**:
+   - The user uploads a document and selects an extraction profile.
+   - User actions are securely transmitted to the backend.
+
+2. **Backend Processing**:
+   - The document and user settings are received by the Django backend.
+   - An asynchronous task is initiated using Celery to process the extraction.
+
+3. **Data Exchange with External APIs**:
+   - The document text is sent to the OpenAI ChatGPT API for initial summary and detailed extraction.
+   - Risk assessment and compliance checks are performed.
+   - Voice messages (if any) are processed via the Voice-to-Text API.
+
+4. **Data Presentation**:
+   - Extracted data, along with risk indicators and compliance alerts, are sent back to the frontend.
+   - The frontend displays the data, incorporating the terminology glossary and in-app guidance.
+
+5. **User Edits and Feedback**:
+   - User edits and confirmations are captured and sent to the backend.
+   - The **Feedback and AI Training Module** uses this data to improve AI models.
+
+6. **Data Export and Report Generation**:
+   - Upon confirmation, data can be exported in various formats.
+   - The **Report Generation Module** compiles the final report, including all insights.
+
+7. **Delivery and User Feedback**:
+   - The report is delivered via download or email.
+   - Users provide ratings and feedback on the extraction process.
+
+8. **Logging and Data Storage**:
+   - User actions and system events are logged for monitoring.
+   - Anonymized metadata is stored for knowledge base enhancement.
+   - Original documents are deleted post-processing to ensure privacy.
