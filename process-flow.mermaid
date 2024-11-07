@@ -1,0 +1,28 @@
+graph TD
+    A[User Accesses the Platform] --> B[Document Upload Interface]
+    B --> C{Upload Contract Document}
+    C -->|Valid File| D[Validation Successful]
+    C -->|Invalid File| E[Prompt to Upload Correct File]
+    D --> F[User Clicks 'Extract']
+    F --> G[Processing Animation Displays]
+    G --> H[Initial Summary Generation via OpenAI API]
+    H --> I[Display Initial Summary to User]
+    I --> J[Display Document Viewer]
+    J --> K[Extract Detailed Information]
+    K --> L[Present Extracted Items to User]
+    L --> M{User Selects/Edits Items}
+    M --> N[User Confirms Selections]
+    N --> O[Final Review of Selections]
+    O --> P{Add Context Message?}
+    P -->|Yes| Q[User Adds Text or Voice Message]
+    P -->|No| R[Proceed Without Context Message]
+    Q --> S[Final Confirmation]
+    R --> S
+    S --> T[Generate Report]
+    T --> U{Download or Email Report}
+    U -->|Download| V[User Downloads Report]
+    U -->|Email| W[Report Sent to Email]
+    V --> X[User Rates the Extraction]
+    W --> X
+    X --> Y[Logs Saved for Review]
+    Y --> Z[End of Process]
