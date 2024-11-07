@@ -1,0 +1,61 @@
+graph LR
+    subgraph Frontend
+        A1[User Interface]
+        A2[Document Viewer]
+        A3[Interactive Extraction Interface]
+        A4[Voice Input Interface]
+        A5[Visualization Module]
+    end
+
+    subgraph Backend
+        B1[Django Web Framework]
+        B2[API Integration Module]
+        B3[Data Processing & Extraction]
+        B4[Asynchronous Task Queue]
+        B5[Database]
+        B6[File Handling Module]
+        B7[Report Generation Module]
+        B8[Email Service]
+        B9[Logging & Monitoring Module]
+        B10[Privacy & Compliance Module]
+    end
+
+    subgraph External Services
+        C1[OpenAI ChatGPT API]
+        C2[Voice-to-Text API]
+        C3[Mermaid.js Library]
+    end
+
+    %% Frontend Interactions
+    A1 <---> A2
+    A1 <---> A3
+    A1 <---> A4
+    A1 <---> A5
+
+    %% Frontend to Backend
+    A1 --> B1
+    A2 --> B1
+    A3 --> B1
+    A4 --> B1
+    A5 --> B1
+
+    %% Backend Components Interaction
+    B1 --> B2
+    B2 --> C1
+    B4 --> B2
+    B2 --> B3
+    B3 --> B5
+    B3 --> B6
+    B3 --> B7
+    B7 --> B8
+    B1 --> B9
+    B1 --> B10
+
+    %% External Services
+    A4 --> C2
+    B3 --> C3
+    A5 --> C3
+
+    %% Logging and Compliance
+    B9 --> B5
+    B10 --> B5
