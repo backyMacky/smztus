@@ -3,21 +3,29 @@ graph LR
         A1[User Interface]
         A2[Document Viewer]
         A3[Interactive Extraction Interface]
-        A4[Voice Input Interface]
-        A5[Visualization Module]
+        A4[Terminology Glossary Interface]
+        A5[Voice Input Interface]
+        A6[Visualization Module]
+        A7[In-App Guidance and Tooltips]
     end
 
     subgraph Backend
         B1[Django Web Framework]
         B2[API Integration Module]
-        B3[Data Processing & Extraction]
-        B4[Asynchronous Task Queue]
-        B5[Database]
-        B6[File Handling Module]
-        B7[Report Generation Module]
-        B8[Email Service]
-        B9[Logging & Monitoring Module]
-        B10[Privacy & Compliance Module]
+        B3[Data Processing & Extraction Module]
+        B4[Risk & Compliance Module]
+        B5[Learning & Adaptation Module]
+        B6[Terminology Glossary Module]
+        B7[Profile Management Module]
+        B8[Asynchronous Task Queue]
+        B9[Database]
+        B10[File Handling Module]
+        B11[Report Generation Module]
+        B12[Data Export Module]
+        B13[Email Service]
+        B14[Logging & Monitoring Module]
+        B15[Feedback & AI Training Module]
+        B16[Privacy & Compliance Module]
     end
 
     subgraph External Services
@@ -31,6 +39,8 @@ graph LR
     A1 <---> A3
     A1 <---> A4
     A1 <---> A5
+    A1 <---> A6
+    A1 <---> A7
 
     %% Frontend to Backend
     A1 --> B1
@@ -38,24 +48,38 @@ graph LR
     A3 --> B1
     A4 --> B1
     A5 --> B1
+    A6 --> B1
+    A7 --> B1
 
     %% Backend Components Interaction
     B1 --> B2
     B2 --> C1
     B4 --> B2
     B2 --> B3
+    B3 --> B4
     B3 --> B5
     B3 --> B6
     B3 --> B7
-    B7 --> B8
-    B1 --> B9
-    B1 --> B10
+    B3 --> B9
+    B3 --> B11
+    B3 --> B12
+    B3 --> B14
+    B3 --> B15
+    B5 --> B15
+    B6 --> B9
+    B7 --> B9
+    B8 --> B2
+    B8 --> B3
+    B11 --> B13
+    B14 --> B9
+    B15 --> B9
+    B16 --> B9
 
     %% External Services
-    A4 --> C2
+    A5 --> C2
     B3 --> C3
-    A5 --> C3
+    A6 --> C3
 
     %% Logging and Compliance
-    B9 --> B5
-    B10 --> B5
+    B14 --> B9
+    B16 --> B9
