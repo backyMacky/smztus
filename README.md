@@ -141,7 +141,202 @@ The contract extraction process is divided into several key steps to guide the u
 
 31. **Privacy Compliance**:
     - Data handling complies with privacy policies and regulations.
-   
+
+### Updated Process Flow Diagram
+
+```mermaid
+graph TD
+    A[User Accesses the Platform] --> B[Document Upload Interface]
+    B --> C{Upload Contract Document}
+    C -->|Valid File| D[Validation Successful]
+    C -->|Invalid File| E[Prompt to Upload Correct File]
+    D --> F[Select/Create Extraction Profile]
+    F --> G[User Clicks 'Extract']
+    G --> H[Processing Animation Displays]
+    H --> I[Initial Summary Generation via OpenAI API]
+    I --> J[Display Initial Summary to User]
+    J --> K[Display Document Viewer]
+    K --> L[Extract Detailed Information with Risk and Compliance Analysis]
+    L --> M[Present Extracted Items with Indicators]
+    M --> N{User Selects/Edits Items}
+    N --> O[User Confirms Selections]
+    O --> P{Export Data?}
+    P -->|Yes| Q[User Exports Data]
+    P -->|No| R[Proceed to Next Step]
+    Q --> R
+    R --> S[Final Review of Selections]
+    S --> T{Add Context Message?}
+    T -->|Yes| U[User Adds Text or Voice Message]
+    T -->|No| V[Proceed Without Context Message]
+    U --> W[System Learns from User Input]
+    V --> W
+    W --> X[Feedback Reflected in User Interface]
+    X --> Y[Generate Report]
+    Y --> Z{Download or Email Report}
+    Z -->|Download| AA[User Downloads Report]
+    Z -->|Email| AB[Report Sent to Email]
+    AA --> AC[User Rates the Extraction via UI]
+    AB --> AC
+    AC --> AD[Feedback Used for AI Improvement]
+    AD --> AE[Logs Saved for Review]
+    AE --> AF[Feedback Loop to User Interface]
+    AF --> AG[End of Process]
+```
+
+**Explanation:**
+
+In the updated process flow diagram, I've added nodes and flows to represent the feedback loop towards the user interface:
+
+- **W --> X[Feedback Reflected in User Interface]**: Shows that the system learns from user input, and the feedback is reflected back into the user interface.
+  
+- **AE --> AF[Feedback Loop to User Interface]**: Indicates that after logs are saved for review, the feedback loop continues towards the user interface for continuous improvement.
+
+By including these nodes and flows, the diagram now accurately represents the feedback mechanisms and how they impact the user interface.
+
+---
+
+## **Section 3: System Architecture (Updated)**
+
+### Overview
+
+The system architecture consists of interconnected components that handle frontend presentation, backend processing, data storage, and external integrations. The architecture now explicitly includes feedback loops towards the user interface to illustrate how user feedback and system learning enhance the UI.
+
+### Frontend Components
+
+1. **User Interface (UI)**:
+   - Responsive and intuitive design.
+   - Enhanced with **in-app guidance and tooltips** for better user experience.
+   - **Feedback Integration**: Reflects improvements based on user feedback and learning from the backend.
+
+2. **Document Viewer**:
+   - Displays uploaded documents with navigation features.
+   - Supports both PDF and DOCX formats.
+
+3. **Interactive Extraction Interface**:
+   - Displays extracted items with options to select, edit, and confirm.
+   - Shows **risk assessment indicators** and **compliance alerts** using visual cues.
+   - Updates dynamically based on feedback and learning.
+
+4. **Terminology Glossary Interface**:
+   - Provides definitions for key terms via hover or click.
+   - Glossary content updated based on backend enhancements.
+
+5. **Voice Input Interface**:
+   - Allows users to record voice messages.
+   - Converts voice input to text for inclusion in the context message.
+
+6. **Visualization Module**:
+   - Renders contract structure diagrams using **Mermaid.js**.
+   - Helps users visualize the flow and hierarchy within the contract.
+
+7. **Feedback Collection Interface**:
+   - Facilitates user ratings and feedback submissions.
+   - Integrated seamlessly into the UI for ease of use.
+
+### Backend Components
+
+1. **Web Framework**:
+   - **Django** handles URL routing, views, and template rendering.
+   - Manages session and state management securely.
+
+2. **API Integration Module**:
+   - Integrates with **OpenAI ChatGPT API** for summaries and extractions.
+   - Uses **Voice-to-Text Service** for processing voice messages.
+
+3. **Data Processing and Extraction Module**:
+   - Processes uploaded documents.
+   - Extracts relevant information using AI/NLP models.
+   - Incorporates **risk and compliance analysis**.
+
+4. **Terminology Glossary Module**:
+   - Manages a database of procurement and legal terms.
+   - Updates glossary based on new terms from processed contracts.
+
+5. **Profile Management Module**:
+   - Manages customizable extraction profiles.
+   - Allows users to create, save, and select profiles.
+
+6. **Asynchronous Task Queue**:
+   - Uses **Celery** with a message broker like Redis or RabbitMQ.
+   - Handles long-running tasks such as API calls and report generation.
+
+7. **Database**:
+   - **PostgreSQL** or **MySQL** stores metadata, logs, glossary terms, and profiles.
+   - Ensures data integrity and security.
+
+8. **File Handling Module**:
+   - Manages secure temporary storage of uploaded documents.
+   - Ensures documents are deleted after processing.
+
+9. **Report Generation Module**:
+   - Compiles selected and edited data into a formatted report.
+   - Includes risk assessments, compliance alerts, and glossary references.
+
+10. **Data Export Module**:
+    - Enables data export in various formats (CSV, Excel, JSON).
+    - Provides flexibility for further analysis or reporting.
+
+11. **Email Service**:
+    - Sends reports to user-specified email addresses.
+    - Handles email templates and delivery status.
+
+12. **Logging and Monitoring Module**:
+    - Records user actions, errors, and system performance metrics.
+    - Provides data for administrative review and system improvement.
+
+13. **Feedback and AI Training Module**:
+    - Collects user feedback and edits.
+    - Uses data to improve AI models through machine learning.
+    - **Feedback Loop to UI**: Enhances the user interface based on learning outcomes.
+
+14. **Privacy and Compliance Module**:
+    - Ensures compliance with data protection regulations like GDPR.
+    - Manages user consents and data handling policies.
+
+### External Services and Integrations
+
+1. **OpenAI ChatGPT API**:
+   - Used for generating initial summaries and detailed extractions.
+   - Requires careful management of API keys and adherence to usage policies.
+
+2. **Voice-to-Text API**:
+   - Converts user voice messages into text.
+   - Options include services like Google Cloud Speech-to-Text.
+
+3. **Mermaid.js**:
+   - Renders diagrams based on data from the backend.
+   - Enhances understanding of contract structures.
+
+### Security and Compliance
+
+1. **Data Security**:
+   - SSL/TLS encryption for data in transit.
+   - Secure handling and storage of sensitive data.
+   - Regular security audits and updates.
+
+2. **User Authentication and Authorization**:
+   - Manages user accounts and permissions.
+   - Supports multi-factor authentication (MFA).
+
+3. **Privacy Compliance**:
+   - Adheres to privacy laws and regulations.
+   - Provides transparent privacy policies to users.
+
+### Deployment and Scalability
+
+1. **Hosting Environment**:
+   - Options include cloud services like AWS, Azure, or Heroku.
+   - Scalable infrastructure to handle variable workloads.
+
+2. **Containerization and Orchestration**:
+   - Uses **Docker** and **Kubernetes** for deployment.
+   - Simplifies scaling and management of application components.
+
+3. **Continuous Integration/Continuous Deployment (CI/CD)**:
+   - Automates testing, integration, and deployment processes.
+   - Utilizes tools like Jenkins, GitHub Actions, or GitLab CI/CD.
+
+
 ## System Architecture
 
 ### Overview
