@@ -1,28 +1,39 @@
+## Mermaid Diagrams
+
+### Process Flow Diagram
+
+```mermaid
 graph TD
     A[User Accesses the Platform] --> B[Document Upload Interface]
     B --> C{Upload Contract Document}
     C -->|Valid File| D[Validation Successful]
     C -->|Invalid File| E[Prompt to Upload Correct File]
-    D --> F[User Clicks 'Extract']
-    F --> G[Processing Animation Displays]
-    G --> H[Initial Summary Generation via OpenAI API]
-    H --> I[Display Initial Summary to User]
-    I --> J[Display Document Viewer]
-    J --> K[Extract Detailed Information]
-    K --> L[Present Extracted Items to User]
-    L --> M{User Selects/Edits Items}
-    M --> N[User Confirms Selections]
-    N --> O[Final Review of Selections]
-    O --> P{Add Context Message?}
-    P -->|Yes| Q[User Adds Text or Voice Message]
-    P -->|No| R[Proceed Without Context Message]
-    Q --> S[Final Confirmation]
-    R --> S
-    S --> T[Generate Report]
-    T --> U{Download or Email Report}
-    U -->|Download| V[User Downloads Report]
-    U -->|Email| W[Report Sent to Email]
-    V --> X[User Rates the Extraction]
-    W --> X
-    X --> Y[Logs Saved for Review]
-    Y --> Z[End of Process]
+    D --> F[Select/Create Extraction Profile]
+    F --> G[User Clicks 'Extract']
+    G --> H[Processing Animation Displays]
+    H --> I[Initial Summary Generation via OpenAI API]
+    I --> J[Display Initial Summary to User]
+    J --> K[Display Document Viewer]
+    K --> L[Extract Detailed Information with Risk and Compliance Analysis]
+    L --> M[Present Extracted Items with Indicators]
+    M --> N{User Selects/Edits Items}
+    N --> O[User Confirms Selections]
+    O --> P{Export Data?}
+    P -->|Yes| Q[User Exports Data]
+    P -->|No| R[Proceed to Next Step]
+    Q --> R
+    R --> S[Final Review of Selections]
+    S --> T{Add Context Message?}
+    T -->|Yes| U[User Adds Text or Voice Message]
+    T -->|No| V[Proceed Without Context Message]
+    U --> W[System Learns from User Input]
+    V --> W
+    W --> X[Generate Report]
+    X --> Y{Download or Email Report}
+    Y -->|Download| Z[User Downloads Report]
+    Y -->|Email| AA[Report Sent to Email]
+    Z --> AB[User Rates the Extraction]
+    AA --> AB
+    AB --> AC[Feedback Used for AI Improvement]
+    AC --> AD[Logs Saved for Review]
+    AD --> AE[End of Process]
