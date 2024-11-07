@@ -16,6 +16,14 @@ Our vision is to revolutionize the contract review process by creating an intell
 
 The contract extraction process is divided into several key steps to guide the user smoothly from uploading a contract to receiving a detailed report. The process is enhanced with additional functionalities for a more insightful and customized experience.
 
+# Process Flow and Architecture (Updated)
+
+## Process Flow
+
+### Overview
+
+The contract extraction process is divided into several key steps to guide the user smoothly from uploading a contract to receiving a detailed report. The process is enhanced with additional functionalities for a more insightful and customized experience, and now includes feedback loops towards the user interface.
+
 ### Step 1: Upload Contract Document and Profile Selection
 
 1. **User Accesses the Platform**: The user navigates to the homepage of the contract extraction site.
@@ -96,35 +104,42 @@ The contract extraction process is divided into several key steps to guide the u
 21. **Learning and Adaptation**:
     - System learns from user edits and feedback to improve future extractions.
 
-22. **Final Confirmation**:
+22. **Feedback Reflected in User Interface**:
+    - Updates or improvements based on user feedback are reflected in the user interface.
+    - Users may notice enhanced suggestions, better accuracy, or new features in subsequent uses.
+
+23. **Final Confirmation**:
     - User confirms to proceed to the next step.
 
 ### Step 6: Report Generation and Feedback
 
-23. **Report Generation**:
+24. **Report Generation**:
     - Compiles selected and edited information into a comprehensive report.
     - Includes risk assessments, compliance alerts, and glossary references.
 
-24. **Download and Email Options**:
+25. **Download and Email Options**:
     - Users can download the report or have it emailed.
 
-25. **User Rating and Feedback**:
-    - Prompted to rate the extraction process and provide feedback.
+26. **User Rating and Feedback**:
+    - Prompted to rate the extraction process and provide feedback via the user interface.
 
-26. **In-App Guidance for Next Steps**:
+27. **In-App Guidance for Next Steps**:
     - Suggestions provided based on the analysis (e.g., areas for renegotiation).
 
 ### Step 7: Post-Processing and Data Handling
 
-27. **Data Anonymization and Storage**:
+28. **Data Anonymization and Storage**:
     - Documents are not stored permanently.
     - Anonymized metadata stored for knowledge base enhancement.
 
-28. **Database Enhancement**:
+29. **Database Enhancement**:
     - Collected metadata enhances the database of contract definitions and structures.
     - **Terminology glossary** updated with new terms.
 
-29. **Privacy Compliance**:
+30. **Feedback Loop to User Interface**:
+    - Continuous improvement cycle where user feedback and data are used to enhance the user interface and system functionalities.
+
+31. **Privacy Compliance**:
     - Data handling complies with privacy policies and regulations.
    
 ## System Architecture
