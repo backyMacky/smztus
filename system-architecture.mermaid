@@ -7,6 +7,7 @@ graph LR
         A5[Voice Input Interface]
         A6[Visualization Module]
         A7[In-App Guidance and Tooltips]
+        A8[Feedback Collection Interface]
     end
 
     subgraph Backend
@@ -41,6 +42,8 @@ graph LR
     A1 <---> A5
     A1 <---> A6
     A1 <---> A7
+    A1 <---> A8
+    A1 <--- B15
 
     %% Frontend to Backend
     A1 --> B1
@@ -50,6 +53,7 @@ graph LR
     A5 --> B1
     A6 --> B1
     A7 --> B1
+    A8 --> B1
 
     %% Backend Components Interaction
     B1 --> B2
@@ -73,6 +77,7 @@ graph LR
     B11 --> B13
     B14 --> B9
     B15 --> B9
+    B15 --> A1  %% Feedback loop to User Interface
     B16 --> B9
 
     %% External Services
