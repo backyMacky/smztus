@@ -38,7 +38,7 @@ The contract extraction process is divided into several key steps to guide the u
    - The system validates the uploaded file for correct format and size.
    - Prompts the user if the file is invalid.
 
-5. **Customizable Extraction Profiles**:
+5. **Customizable Extraction Profiles** **(not now - NEXT VERSION)**:
    - Users select or create a custom extraction profile tailored to their specific needs (e.g., focusing on payment terms, delivery schedules).
    - Profiles can be saved for future use.
 
@@ -53,6 +53,7 @@ The contract extraction process is divided into several key steps to guide the u
 8. **Initial Summary Generation**:
    - Backend sends the document text to the OpenAI ChatGPT API, guided by the selected extraction profile.
    - Generates an initial summary (up to 2,500 characters).
+   - There should be also an animation that as soon as I get the item from ChatGPT that it adds it into the summary (one at a time with animation)
 
 9. **Display Initial Summary**:
    - System displays the initial summary with key terms linked to the **terminology glossary**.
@@ -71,7 +72,7 @@ The contract extraction process is divided into several key steps to guide the u
     - Items presented in an organized list or table.
     - Visual cues (e.g., color-coded warnings) indicate risks and compliance issues.
 
-13. **Terminology Glossary Integration**:
+13. **Terminology Glossary Integration** **(not now - NEXT VERSION)**:
     - Key terms linked to a glossary accessible via hover or click.
 
 14. **In-App Guidance and Tooltips**:
@@ -101,7 +102,7 @@ The contract extraction process is divided into several key steps to guide the u
 20. **Context Message Attachment**:
     - Option to add additional context via text or voice message.
 
-21. **Learning and Adaptation**:
+21. **Learning and Adaptation** **(not now - NEXT VERSION)**:
     - System learns from user edits and feedback to improve future extractions.
 
 22. **Feedback Reflected in User Interface**:
@@ -136,7 +137,7 @@ The contract extraction process is divided into several key steps to guide the u
     - Collected metadata enhances the database of contract definitions and structures.
     - **Terminology glossary** updated with new terms.
 
-30. **Feedback Loop to User Interface**:
+30. **Feedback Loop to User Interface**: 
     - Continuous improvement cycle where user feedback and data are used to enhance the user interface and system functionalities.
 
 31. **Privacy Compliance**:
